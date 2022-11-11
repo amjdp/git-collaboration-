@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To Do </title>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script> -->
+
+
+    <style>
+        div {
+            margin-top: 100px;
+            margin-left: 200px;
+        }
+
+        .table_main {
+            background-color: rgb(200, 232, 197);
+            height: 200px;
+            width: 80%;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .r1 {
+            background-color: rgb(14, 40, 14);
+            color: #fff;
+            height: 80px;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .r2 {
+            background-color: rgb(239, 208, 238);
+            height: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .r3 {
+            height: 300px;
+        }
+
+        .table_data {
+            background-color: rgb(84, 170, 76);
+            height: 150px;
+            width: 80%;
+            border: 1px solid rgb(84, 170, 76);
+            border-radius: 20px;
+            margin-left: 100px;
+        }
+
+        .table_list {
+            border: 1px solid black;
+            margin-left: 100px;
+        }
+
+        .r4 {
+            background-color: rgb(239, 208, 238);
+            height: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+
+
+        <table class="table_main">
+
+            <tr class="r1">
+                <td> To Do App</td>
+            </tr>
+
+            <tr class="r2">
+                <td>
+                    Welcome Anonymous User!
+                </td>
+            </tr>
+
+            <tr class="r3">
+                <td>
+
+                    <table class="table_data">
+                        <tr>
+                            <td>
+                                <input type="text" id="title" placeholder="Title">
+                            </td>
+                            <td>
+                                <textarea id="description" name="DESCRIPTION" cols="30" rows="10"
+                                    placeholder="Description"></textarea>
+                            </td>
+                            <td>
+                                <button type="submit" id="save" onclick="save()">SAVE</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+                    <table id="table_list">
+                        <tr>
+                            <th width="10%">Sl No</th>
+                            <th width="30%">
+                                Title
+                            </th>
+                            <th width="50%">
+                                Description
+                            </th>
+                        </tr> <br>
+                    </table>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b> Developed by : </b> Cybersquare
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        let i = 0
+
+        function save() {
+
+            var table = document.getElementById('table_list')
+            var title = document.getElementById('title').value
+            var desc = document.getElementById('description').value
+
+            var row = table.insertRow()
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+
+            cell1.innerHTML = i + 1
+            cell2.innerHTML = title
+            cell3.innerHTML = desc
+
+            var btn = document.createElement("BUTTON")
+            btn.innerHTML = "DELETE"
+            btn.onclick = function com() {
+                document.getElementById("table_list").deleteRow(1);
+            }
+
+            cell4.appendChild(btn)
+            i++
+        }
+
+    </script>
+
+
+</body>
+
+</html>
